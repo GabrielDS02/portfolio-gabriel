@@ -1,0 +1,69 @@
+<section class="manifesto section-pad" appReveal aria-labelledby="manifesto-title">
+  <p class="section-index">{{ store.copy().manifesto.index }}</p>
+  <div>
+    <h2 id="manifesto-title">{{ store.copy().manifesto.title }}</h2>
+    <p>{{ store.copy().manifesto.body }}</p>
+  </div>
+  <div class="manifesto-note">
+    <span>{{ store.copy().manifesto.note }}</span>
+    <svg viewBox="0 0 140 50" aria-hidden="true">
+      <path d="M4 31C30 7 55 46 80 20c18-19 37-2 56-12" />
+      <path d="m126 4 10 4-4 10" />
+    </svg>
+  </div>
+</section>
+
+<section class="featured section-pad" id="projetos" aria-labelledby="featured-title">
+  <div class="section-heading" appReveal>
+    <p class="section-index">{{ store.copy().featured.index }}</p>
+    <h2 id="featured-title">{{ store.copy().featured.heading }}</h2>
+  </div>
+
+  <article class="case-study" appReveal>
+    <div class="case-intro">
+      <div class="case-number">01</div>
+      <div>
+        <p class="project-type">{{ store.copy().featured.type }}</p>
+        <h3>Alcateia<br />do Ensino</h3>
+      </div>
+      <a class="project-link" [href]="projectUrl" target="_blank" rel="noopener noreferrer">
+        {{ store.copy().featured.visit }} <span aria-hidden="true">↗</span>
+      </a>
+    </div>
+
+    <div class="case-summary">
+      <p>{{ store.copy().featured.summary }}</p>
+      <p>{{ store.copy().featured.operation }}</p>
+    </div>
+
+    <div class="architecture" [attr.aria-label]="store.copy().featured.architectureLabel">
+      <div class="arch-core">
+        <span class="pulse"></span>
+        <small>{{ store.copy().featured.core }}</small>
+        <strong>{{ store.copy().featured.platform }}</strong>
+        <em>Java + Spring Boot</em>
+      </div>
+      @for (node of store.copy().featured.nodes; track node; let index = $index) {
+        <div class="arch-node" [class]="'arch-node node-' + ['a', 'b', 'c', 'd'][index]">
+          <i>0{{ index + 1 }}</i
+          ><span>{{ node }}</span>
+        </div>
+      }
+      <svg class="arch-lines" viewBox="0 0 800 430" preserveAspectRatio="none" aria-hidden="true">
+        <path d="M400 215C290 215 240 72 110 72" />
+        <path d="M400 215C510 215 560 72 690 72" />
+        <path d="M400 215C290 215 240 358 110 358" />
+        <path d="M400 215C510 215 560 358 690 358" />
+      </svg>
+    </div>
+
+    <div class="case-details">
+      @for (detail of store.copy().featured.details; track detail.label) {
+        <div>
+          <p class="detail-label">{{ detail.label }}</p>
+          <p>{{ detail.value }}</p>
+        </div>
+      }
+    </div>
+  </article>
+</section>

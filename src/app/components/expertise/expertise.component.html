@@ -1,0 +1,23 @@
+<section class="stack section-pad" id="stack" aria-labelledby="stack-title">
+  <div class="stack-heading" appReveal>
+    <p class="section-index">{{ store.copy().expertise.index }}</p>
+    <h2 id="stack-title">
+      {{ store.copy().expertise.title }}<br /><em>{{ store.copy().expertise.emphasis }}</em>
+    </h2>
+  </div>
+  <div class="stack-list">
+    @for (group of expertise; track group.number) {
+      <article class="stack-row" appReveal>
+        <span>{{ group.number }}</span>
+        <h3>{{ group.title }}</h3>
+        <p>{{ group.technologies }}</p>
+        <i>{{ store.localize(group.outcome) }}</i>
+      </article>
+    }
+  </div>
+  <a class="github-band" appReveal [href]="config.github" target="_blank" rel="noopener noreferrer">
+    <span>github.com/GabrielDS02</span>
+    <strong>{{ store.copy().expertise.githubLabel }}</strong>
+    <i aria-hidden="true">↗</i>
+  </a>
+</section>

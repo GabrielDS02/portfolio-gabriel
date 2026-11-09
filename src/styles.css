@@ -1,0 +1,399 @@
+@import 'tailwindcss';
+@import './styles/portfolio.css';
+
+@theme {
+  --font-sans: 'Segoe UI Variable', 'Segoe UI', Arial, sans-serif;
+  --font-display: Georgia, 'Times New Roman', serif;
+  --color-brand-coral: #ff6847;
+  --color-brand-mint: #b8f4d1;
+  --color-brand-ink: #11110f;
+  --color-brand-paper: #f2efe8;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  min-width: 320px;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* A soft pointer light gives the desktop experience depth without adding JavaScript animation loops. */
+.cursor-glow {
+  left: var(--pointer-x, 50vw);
+  top: var(--pointer-y, 30vh);
+}
+
+.brand-mark {
+  isolation: isolate;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.install-compact {
+  display: inline-flex;
+  min-height: 38px;
+  padding: 0 13px;
+  align-items: center;
+  gap: 7px;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.install-compact:hover {
+  background: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.portrait-card {
+  isolation: isolate;
+}
+
+.portrait-halo {
+  position: absolute;
+  z-index: -1;
+  inset: -24px;
+  background: radial-gradient(circle, rgba(255, 104, 71, 0.32), transparent 68%);
+  filter: blur(12px);
+  opacity: 0.72;
+}
+
+.portrait-card img {
+  aspect-ratio: 3 / 4;
+  object-position: center 34%;
+}
+
+.project-card {
+  min-height: 720px;
+  transform: perspective(1200px) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+  transition:
+    opacity 0.28s ease,
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+.project-card:hover {
+  z-index: 2;
+  box-shadow: 0 24px 70px rgba(17, 17, 15, 0.16);
+}
+
+.project-art {
+  position: relative;
+  height: 285px;
+  margin: 30px 0 38px;
+  overflow: hidden;
+  background: #20201d;
+}
+
+.project-art::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 56%, rgba(17, 17, 15, 0.34));
+  content: '';
+  pointer-events: none;
+}
+
+.project-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition:
+    transform 0.7s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.35s ease;
+}
+
+.project-card:hover .project-art img {
+  transform: scale(1.045);
+}
+
+.project-art-index {
+  position: absolute;
+  z-index: 2;
+  right: 14px;
+  bottom: 12px;
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  color: white;
+  background: rgba(17, 17, 15, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 50%;
+  font:
+    11px/1 Consolas,
+    monospace;
+  backdrop-filter: blur(10px);
+}
+
+.tone-orange .project-art {
+  background: #ff7b16;
+}
+.tone-mint .project-art {
+  background: var(--mint);
+}
+.tone-coral .project-art {
+  background: var(--coral);
+}
+.tone-violet .project-art {
+  background: var(--violet);
+}
+.tone-ink .project-art {
+  background: var(--ink);
+}
+.tone-blue .project-art {
+  background: var(--blue);
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  margin: 0;
+  padding: 80px 30px;
+  text-align: center;
+  background: var(--white);
+}
+
+.arch-core strong {
+  max-width: 155px;
+}
+
+.arch-node span {
+  white-space: normal;
+}
+
+.contact-actions,
+.contact-secondary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.contact-secondary {
+  margin-top: 22px;
+  gap: 20px;
+}
+
+.contact-secondary a,
+.contact-secondary button {
+  padding: 4px 0;
+  color: #321812;
+  border: 0;
+  border-bottom: 1px solid rgba(50, 24, 18, 0.35);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.button-outline-light {
+  color: var(--ink);
+  background: transparent;
+  border: 1px solid rgba(17, 17, 15, 0.35);
+}
+
+.button-outline-light:hover {
+  color: var(--white);
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.contact blockquote footer {
+  display: block;
+  margin-top: 28px;
+  padding: 0;
+  color: #8f8c85;
+  background: none;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+}
+
+.install-banner {
+  display: grid;
+  align-items: center;
+  margin: 0;
+  padding: 34px clamp(20px, 6vw, 96px);
+  color: var(--ink);
+  background: var(--mint);
+  grid-template-columns: auto 1fr auto;
+  gap: 26px;
+  border-top: 1px solid rgba(17, 17, 15, 0.18);
+}
+
+.install-icon {
+  display: grid;
+  width: 64px;
+  height: 64px;
+  place-items: center;
+  color: var(--white);
+  background: var(--ink);
+  border-radius: 16px;
+  font: 400 23px/1 var(--display);
+  transform: rotate(-5deg);
+}
+
+.install-banner p {
+  margin: 0 0 5px;
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.install-banner h2 {
+  margin: 0;
+  font: 400 clamp(25px, 3vw, 42px)/1.05 var(--display);
+}
+
+.install-banner div > span {
+  display: block;
+  max-width: 670px;
+  margin-top: 9px;
+  color: #365146;
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.install-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.site-footer {
+  display: block;
+  padding: 60px clamp(20px, 6vw, 96px) 32px;
+  color: var(--white);
+  background: var(--ink);
+}
+
+.footer-primary {
+  display: grid;
+  align-items: end;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 40px;
+}
+
+.footer-primary > p {
+  max-width: 430px;
+  margin: 0;
+  color: #8f8c85;
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.back-to-top {
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-meta {
+  display: flex;
+  margin-top: 45px;
+  padding-top: 22px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  color: #66635e;
+  border-top: 1px solid rgba(255, 255, 255, 0.11);
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 900px) {
+  .install-compact span:last-child {
+    display: none;
+  }
+
+  .install-banner {
+    grid-template-columns: auto 1fr;
+  }
+
+  .install-actions {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 760px) {
+  html {
+    scroll-padding-top: 78px;
+  }
+
+  .install-compact {
+    display: none;
+  }
+
+  .project-card {
+    min-height: 640px;
+  }
+
+  .project-art {
+    height: 225px;
+    margin: 25px 0 30px;
+  }
+
+  .contact-actions,
+  .contact-secondary {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .contact-actions .button {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .install-banner {
+    padding: 30px 20px;
+    grid-template-columns: 1fr;
+  }
+
+  .install-icon {
+    width: 52px;
+    height: 52px;
+  }
+
+  .install-actions {
+    grid-column: 1;
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footer-primary {
+    align-items: start;
+    grid-template-columns: 1fr;
+  }
+
+  .footer-meta {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .project-card,
+  .project-card:hover,
+  .project-art img,
+  .project-card:hover .project-art img {
+    transform: none;
+  }
+}

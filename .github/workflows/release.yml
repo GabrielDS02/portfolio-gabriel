@@ -1,0 +1,31 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+      - name: Validate release
+        run: npm run check
+      - name: Package production build
+        run: tar -czf portfolio-gabriel-${{ github.ref_name }}.tar.gz -C dist/portfolio-gabriel/browser .
+      - name: Create GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh release create "${{ github.ref_name }}" "portfolio-gabriel-${{ github.ref_name }}.tar.gz" --generate-notes --title "Portfolio Gabriel Machado ${{ github.ref_name }}"

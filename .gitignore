@@ -1,0 +1,28 @@
+# Dependencies and generated output
+/node_modules
+/dist
+/coverage
+/.angular
+/out-tsc
+
+# Local tooling
+/.vscode/*
+!/.vscode/extensions.json
+/.idea
+*.log
+.DS_Store
+Thumbs.db
+
+# Environment and deployment state
+.env
+.env.*
+!.env.example
+.netlify
+
+# Temporary migration and QA files
+/tmp
+/.migration-backup
+
+# Local OS / editor artifacts
+*.swp
+*.swo

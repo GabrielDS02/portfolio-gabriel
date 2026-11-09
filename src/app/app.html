@@ -1,0 +1,23 @@
+<div class="scroll-progress" aria-hidden="true">
+  <span [style.transform]="'scaleX(' + scrollProgress() + ')'"> </span>
+</div>
+<div class="cursor-glow" aria-hidden="true"></div>
+<a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+<app-header />
+
+<main id="conteudo">
+  <app-hero (copyPresentation)="copyPresentation()" />
+  <app-featured-case />
+  <app-project-gallery />
+  <app-expertise />
+  <app-process />
+  <app-contact (copyPresentation)="copyPresentation()" />
+  <app-install-banner />
+</main>
+
+<app-footer />
+
+<div class="toast" [class.is-visible]="toastVisible()" role="status" aria-live="polite">
+  {{ toastMessage() }}
+</div>
