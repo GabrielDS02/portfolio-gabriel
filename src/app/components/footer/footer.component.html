@@ -1,0 +1,15 @@
+<footer class="site-footer">
+  <div class="footer-primary">
+    <a class="brand" href="#topo" [attr.aria-label]="store.copy().footer.backToTop">
+      <span class="brand-mark">GM</span>
+      <span class="brand-copy">Gabriel Machado<br />Software Engineer</span>
+    </a>
+    <p>{{ store.copy().footer.statement }}</p>
+    <a class="back-to-top" href="#topo">{{ store.copy().footer.backToTop }} ↑</a>
+  </div>
+  <div class="footer-meta">
+    <span>{{ store.copy().footer.label }}</span>
+    <span>{{ store.copy().footer.location }}</span>
+    <span>© {{ currentYear }} {{ config.shortName }}. {{ store.copy().footer.rights }}</span>
+  </div>
+</footer>

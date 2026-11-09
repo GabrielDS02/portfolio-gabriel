@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160" role="img" aria-labelledby="title desc">
+  <title id="title">Monograma GM</title>
+  <desc id="desc">Marca de Gabriel Machado formada por geometria editorial em preto, coral e menta.</desc>
+  <rect width="160" height="160" rx="38" fill="#11110f"/>
+  <path d="M37 48h48v15H52v34h26V81H63V68h32v45H43a6 6 0 0 1-6-6V48Z" fill="#fffdf8"/>
+  <path d="M105 48h18v65h-18z" fill="#ff6847"/>
+  <circle cx="121" cy="38" r="10" fill="#b8f4d1"/>
+</svg>

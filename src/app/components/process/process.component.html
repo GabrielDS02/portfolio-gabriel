@@ -1,0 +1,15 @@
+<section class="process section-pad" id="processo" aria-labelledby="process-title">
+  <div class="section-heading" appReveal>
+    <p class="section-index">{{ store.copy().process.index }}</p>
+    <h2 id="process-title">{{ store.copy().process.title }}</h2>
+  </div>
+  <div class="process-track">
+    @for (step of steps; track step.number) {
+      <article appReveal>
+        <span>{{ step.number }}</span>
+        <h3>{{ store.localize(step.title) }}</h3>
+        <p>{{ store.localize(step.description) }}</p>
+      </article>
+    }
+  </div>
+</section>

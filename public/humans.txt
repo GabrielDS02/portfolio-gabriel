@@ -1,0 +1,10 @@
+/* TEAM */
+Owner & Developer: Gabriel da Silva Machado
+Location: Belo Horizonte, Minas Gerais, Brasil
+Contact: gabrielsolucoesemsoftware@gmail.com
+
+/* TECHNOLOGY */
+Angular, TypeScript, Tailwind CSS, PWA, Netlify
+
+/* VALUES */
+Accessibility, performance, maintainability, honest communication.

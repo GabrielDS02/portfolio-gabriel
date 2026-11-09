@@ -1,0 +1,51 @@
+{
+  "name": "portfolio-gabriel-machado",
+  "version": "2.0.0",
+  "description": "Portfólio profissional de Gabriel da Silva Machado, Software Engineer e Full Stack Developer.",
+  "private": true,
+  "packageManager": "npm@11.20.0",
+  "engines": {
+    "node": ">=22.12.0 <27",
+    "npm": ">=10"
+  },
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build --configuration production",
+    "build:development": "ng build --configuration development",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test --watch=false",
+    "test:watch": "ng test",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "check": "npm run lint && npm run test && npm run build"
+  },
+  "dependencies": {
+    "@angular/common": "^22.2.5",
+    "@angular/compiler": "^22.2.5",
+    "@angular/core": "^22.2.5",
+    "@angular/platform-browser": "^22.2.5",
+    "@angular/router": "^22.2.5",
+    "@angular/service-worker": "^22.2.5",
+    "rxjs": "~7.8.2",
+    "tslib": "^2.9.1"
+  },
+  "devDependencies": {
+    "@angular/build": "^22.2.6",
+    "@angular/cli": "^22.2.6",
+    "@angular/compiler-cli": "^22.2.5",
+    "@eslint/js": "^10.0.1",
+    "@tailwindcss/postcss": "^4.3.5",
+    "angular-eslint": "^22.6.0",
+    "eslint": "^10.14.0",
+    "jsdom": "^31.0.0",
+    "postcss": "^8.5.32",
+    "prettier": "^3.9.10",
+    "prettier-plugin-tailwindcss": "^0.8.1",
+    "tailwindcss": "^4.3.5",
+    "typescript": "~6.0.2",
+    "typescript-eslint": "^8.72.1",
+    "vitest": "^5.1.0"
+  }
+}

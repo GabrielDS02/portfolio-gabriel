@@ -1,0 +1,18 @@
+@if (installPrompt.canInstall() && !dismissed()) {
+  <aside class="install-banner" aria-labelledby="install-title">
+    <div class="install-icon" aria-hidden="true">GM</div>
+    <div>
+      <p>{{ store.copy().install.eyebrow }}</p>
+      <h2 id="install-title">{{ store.copy().install.title }}</h2>
+      <span>{{ store.copy().install.body }}</span>
+    </div>
+    <div class="install-actions">
+      <button class="button button-primary" type="button" (click)="installPrompt.install()">
+        {{ store.copy().install.action }}
+      </button>
+      <button class="text-button" type="button" (click)="dismissed.set(true)">
+        {{ store.copy().install.dismiss }}
+      </button>
+    </div>
+  </aside>
+}

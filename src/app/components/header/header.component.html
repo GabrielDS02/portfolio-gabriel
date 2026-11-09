@@ -1,0 +1,68 @@
+<header class="site-header" [class.is-menu-open]="menuOpen()" [class.is-scrolled]="scrolled()">
+  <a class="brand" href="#topo" aria-label="Gabriel Machado — início" (click)="closeMenu()">
+    <span class="brand-mark" aria-hidden="true">GM</span>
+    <span class="brand-copy">Software Engineer<br />Full Stack • Architect</span>
+  </a>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    [attr.aria-expanded]="menuOpen()"
+    aria-controls="main-nav"
+    [attr.aria-label]="menuOpen() ? store.copy().nav.closeMenu : store.copy().nav.openMenu"
+    (click)="toggleMenu()"
+  >
+    <span></span><span></span>
+  </button>
+
+  <nav class="main-nav" id="main-nav" [class.is-open]="menuOpen()" aria-label="Navegação principal">
+    <a href="#projetos" (click)="closeMenu()">{{ store.copy().nav.projects }}</a>
+    <a href="#stack" (click)="closeMenu()">{{ store.copy().nav.expertise }}</a>
+    <a href="#processo" (click)="closeMenu()">{{ store.copy().nav.process }}</a>
+    <a [href]="config.github" target="_blank" rel="noopener noreferrer">
+      {{ store.copy().nav.github }} <span aria-hidden="true">↗</span>
+    </a>
+    <a class="nav-cta" href="#contato" (click)="closeMenu()">
+      {{ store.copy().nav.contact }} <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
+
+  <div class="header-tools">
+    @if (installPrompt.canInstall()) {
+      <button class="install-compact" type="button" (click)="installPrompt.install()">
+        <span aria-hidden="true">↓</span>
+        <span>{{ store.copy().nav.install }}</span>
+      </button>
+    }
+
+    <label class="language-control">
+      <span class="sr-only">{{ store.copy().nav.language }}</span>
+      <select
+        [value]="store.locale()"
+        [attr.aria-label]="store.copy().nav.language"
+        (change)="changeLanguage($event)"
+      >
+        <option value="pt">PT</option>
+        <option value="en">EN</option>
+        <option value="es">ES</option>
+      </select>
+    </label>
+
+    <button
+      class="theme-toggle"
+      type="button"
+      [attr.aria-label]="theme.theme() === 'dark' ? store.copy().nav.light : store.copy().nav.dark"
+      (click)="theme.toggle()"
+    >
+      <svg class="icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+        <circle cx="12" cy="12" r="3.5" />
+        <path
+          d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.65 17.65l1.42 1.42M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.65 6.35l1.42-1.42"
+        />
+      </svg>
+      <svg class="icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M20 15.2A8.4 8.4 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z" />
+      </svg>
+    </button>
+  </div>
+</header>
